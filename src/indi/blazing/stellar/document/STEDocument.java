@@ -30,7 +30,8 @@ public abstract class STEDocument {
 	
 	private boolean readOnly = true;
 	
-	public STEDocument(Path docPath, STEAttribute... attrs) throws FileNotFoundException {
+	public STEDocument(Path docPath, STEAttribute... attrs) 
+			throws FileNotFoundException {
 		if(!Files.exists(docPath) || Files.isDirectory(docPath)) 
 			throw new FileNotFoundException("<Path: " + docPath + ">");
 		

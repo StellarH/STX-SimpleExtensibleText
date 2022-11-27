@@ -28,39 +28,41 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class STEText extends STEDocument implements Iterable<String>{
+public abstract class STEText extends STEDocument 
+		implements Iterable<String> {
 	
 	private String description, type, typeParameters;
 	private Charset encoding;
 	private ArrayList<String> doclines = new ArrayList<>();
 	
-	public STEText(Path docPath, String doctype, STEAttribute... attrs) throws IOException {
+	public STEText(Path docPath, String doctype, STEAttribute... attrs) 
+			throws IOException {
 		super(docPath, attrs);
 		
 		BufferedReader doc = Files.newBufferedReader(docPath);
 		String line = doc.readLine();
 		
-		ArrayList<String> docDetails = splitWithTab(line, 4);
-		if(docDetails.size() < 3) {
+		ArrayList<String> docProp = splitWithTab(line, 4);
+		if(docProp.size() < 3) {
 			doc.close();
-			throw new IOException("<UncorrectFormat: " + docPath + ">");
+			throw new IOException("<UnknownFormat: " + docPath + ">");
 		}
-		encoding = Charset.forName(docDetails.get(1));
+		encoding = Charset.forName(docProp.get(1));
 		if(!encoding.equals(StandardCharsets.UTF_8)) {
 			doc.close();
 			doc = Files.newBufferedReader(docPath, encoding);
 			line = doc.readLine();
-			docDetails = splitWithTab(line, 4);
+			docProp = splitWithTab(line, 4);
 		}
 		
-		if(type == null || !doctype.equals(docDetails.get(2))) {
+		if(type == null || !doctype.equals(docProp.get(2))) {
 			doc.close();
-			throw new IOException("<UncorrectType: " + docDetails.get(2) + ">");
+			throw new IOException("<UnexpectedType: " + docProp.get(2) + ">");
 		}
 		
-		description = docDetails.get(0);
-		typeParameters = docDetails.size() == 4? 
-				docDetails.get(3): "";
+		description = docProp.get(0);
+		typeParameters = docProp.size() == 4? 
+				docProp.get(3): "";
 		
 		/* split typeParameters to super.setAttr(String, String)*/
 		
@@ -128,7 +130,8 @@ public abstract class STEText extends STEDocument implements Iterable<String>{
 	}
 	
 	public void save() {
-		if(getPath() == null) throw new UnsupportedOperationException("Path of this document is null!");
+		if(getPath() == null) 
+			throw new UnsupportedOperationException("Path of this document is null!");
 		
 		doclines.set(0, getDetailLine());
 		try {
