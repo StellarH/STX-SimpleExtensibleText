@@ -1,2 +1,2 @@
 # STEDocument
-##Eclipse Public License & BSD 3-Clause License
+## Eclipse Public License & BSD 3-Clause License
