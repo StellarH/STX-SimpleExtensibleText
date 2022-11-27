@@ -10,7 +10,7 @@
  * 		BSD 3-Clause License 
  * which is available at 
  * 		https://opensource.org/licenses/BSD-3-Clause 
- *
+ * 
  * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
  ******************************************************************************
  */
