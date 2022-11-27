@@ -1,5 +1,4 @@
-/**
- ******************************************************************************
+/******************************************************************************
  * Copyright (c) 2022 BlazingStellar
  * 
  * This program and the accompanying materials are made available under the 
@@ -12,7 +11,7 @@
  * which is available at 
  * 		https://opensource.org/licenses/BSD-3-Clause 
  *
- * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
+ * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
  ******************************************************************************
  */
 package indi.blazing.stellar.document;
