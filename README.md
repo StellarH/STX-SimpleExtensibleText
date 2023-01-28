@@ -1,4 +1,4 @@
 # STX-SimpleExtensibleText
-##### Under the Eclipse Public License 2.0
+##### Licensed Under the Eclipse Public License 2.0
 
 ******************************************************************************
