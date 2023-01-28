@@ -1,4 +1,4 @@
-# STEDocument
-##### Under the Eclipse Public License and the BSD 3-Clause License
+# STX-SimpleExtensibleText
+##### Under the Eclipse Public License 2.0
 
 ******************************************************************************
